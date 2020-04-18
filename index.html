@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let data =[
+        {Principal: 2500, time: 1.8},
+        {Principal: 1000, time: 5},
+        {Principal: 3000, time: 1},
+        {Principal: 2000, time: 3}
+    ];
+
+    let interestCalculator = (arr) => {
+        let interestData = [...arr];
+        for (let data of interestData) {
+            if (data['Principal'] >= 2500 && data.time > 1 && data['time'] < 3) {
+                data['rate'] = 3;
+            }else if(data['Principal'] >= 2500 && data['time'] >= 3){
+                data['rate'] = 4;
+            }else if(data['Principal'] < 2500 || data['time'] <= 1){
+                data['rate'] = 2;
+            }else{
+                data['rate'] = 1;
+            }
+            data.interest = (data['Principal'] * data['rate'] * data['time']) / 100; 
+        }
+        console.log(interestData);
+         return interestData;
+    }
+    interestCalculator(data);
+
+</script>
+</html>
